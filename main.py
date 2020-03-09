@@ -1,4 +1,3 @@
-import time
 from player import *
 from game import *
 from art import *
@@ -69,13 +68,14 @@ def rightRoom(player):
 
     if hasVisitedRoom(thisRoom) == False:
         print('In this room, you find nothing but an empty room!')
-        print('You look around but find nothing of worth anywhere!')
+        print('You look around but find nothing of worth anywhere.')
         print('You go to leave the room feeling slightly disappointed...')
-        time.sleep(8)
-        print('But suddenly behind you...')
-        time.sleep(3)
-        print('You hear something...')
-        time.sleep(3)
+
+        input(red + 'Press enter to continue' + reset_color)
+
+        print('But suddenly, you hear something behind you...')
+
+        input(red + 'Press enter to continue' + reset_color)
 
     if rightRoomCleared == False:
         prompt = 'You can attack it with your weapon, shine your lantern at it, or flee in terror.'
@@ -118,7 +118,7 @@ def initializePlayer():
     pInput = handleInput("You can choose whatever weapon you want to brave the dungeon.", weaponChoices)
     playerWeapon = weaponChoices[pInput - 1]
 
-    print(f'Someone in town told you that the boss in the dungeon might be weak to something {dungeonBossWeaknessHint[dungeonBoss]}.')
+    printActionText(f'Someone in town told you that the boss in the dungeon might be weak to something {dungeonBossWeaknessHint[dungeonBoss]}.')
     pInput = handleInput('That said, choose a special item to bring into the dungeon.', specialItemChoices)
     playerSpecialItem = specialItemChoices[pInput - 1]
 
